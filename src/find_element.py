@@ -36,12 +36,20 @@ result = driver.find_element(By.CSS_SELECTOR, 'span.heading-counter').text
 print("result of the search", result)
 print("###### Example for find elements#########")
 
+products = driver.find_elements(By.XPATH, "//div[@id='center_column']//a[@class='product-name']")
+#nums = [2, 3, 4, 5, 6]
+product_names = []
+for product in products: # identify each element in a list
+   print(f"'{product.text}'")
+   product_names.append(product.text.strip())  # append is saving product names. strip rids off white spaces
+print(product_names)
+
+
 
 
 
 
 print("------------- Completed --------------------")
-
 # find_element vs find_elements
 # results = driver.find_elements(By.CSS_SELECTOR, 'span.heading-counter')
 # above will return elements in a list
@@ -51,3 +59,4 @@ print("------------- Completed --------------------")
 time.sleep(5)
 # locators: id, name, class, >> xpath, css selector  >> link_text,
 driver.quit()
+
